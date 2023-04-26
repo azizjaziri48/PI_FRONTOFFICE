@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AgentService } from 'src/app/UserService/agent.service';
-import { Agent } from 'src/app/models/agent';
+
 
 @Component({
   selector: 'app-classification',

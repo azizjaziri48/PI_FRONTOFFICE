@@ -98,7 +98,7 @@
     <div class="row doctors-team-style-2">
       <div col-12 text-center class="col-6 text-center ">
         <button type="submit"
-            class="btn-first btn-submit text-light-blue fw-600 mb-xl-20" (click)="openPDF()" >Download PDF</button>
+            class="btn-first btn-submit text-light-blue fw-600 mb-xl-20"  >Download PDF</button>
     </div>
 
     <div  col-12 text-center class="col-4 text-center ">
@@ -118,37 +118,8 @@
         </div>
         <div class="table-responsive">
           <table class="lw-tab-table">
-            <tr class="lw-table-row-1">
-              <th [appSort]="tr" data-order="desc" data-name="idTransaction" scope="col">idTransaction</th>
-              <th [appSort]="tr" data-order="desc" data-name="dateTransaction" scope="col">dateTransaction </th>
-              <th [appSort]="tr" data-order="desc" data-name="ribRecipient" scope="col">ribRecipient </th>
-              <th [appSort]="tr" data-order="desc" data-name="ribEmetteur" scope="col">ribEmetteur</th>
-              <th [appSort]="tr" data-order="desc" data-name="amount" scope="col">amount</th>
+           
             
-            </tr>
-            <tr *ngFor = "let trs of tr  | filter: filterTerm | paginate
-              : {
-                  itemsPerPage: tableSize,
-                  currentPage: page,
-                  totalItems: count
-                };
-          let i = index
-        ">
-        <td class="lw-table-data-2">
-          {{ trs.idTransaction }}
-        </td>
-              <td class="lw-table-data-2">
-                {{ trs.dateTransaction }}
-              </td>
-              <td class="lw-table-data-2">
-                {{ trs.ribRecipient }}
-              </td>
-              <td class="lw-table-data-3">
-                {{ trs.ribEmetteur }}
-              </td>
-              <td class="lw-table-data-4">
-                {{ trs.amount }}
-              </td>
               <!--
               <td class="lw-table-data-3 choose-btn">
                 <button class="btn btn-lg btn-outline-primary" (click)="openVerticallyCentered(content1)">view</button>
@@ -200,7 +171,7 @@
 
               </td>
 -->
-            </tr>
+           
 
           </table>
          

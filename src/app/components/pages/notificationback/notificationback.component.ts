@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService} from '../../../Services/notification.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {Notification} from '../../../models/Notification';
 
 @Component({
   selector: 'app-notificationback',
@@ -21,29 +19,19 @@ export class NotificationbackComponent implements OnInit {
   form = false;
   notification!: Notification;
 
-  constructor(private notificationService: NotificationService, private modalService: NgbModal) { }
+  constructor( private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.getNotification();
-    this.notification = {
-      idNotification: null,
-      dateNotif: null,
-      object: null,
-      credit: null
-    };
+
   }
-  getNotification(){
-    this.notificationService.getAllNotifications().subscribe(res => this.listNotifications = res);
-    }
+
 
     onTableDataChange(event: any) {
       this.page = event;
-      this.getNotification();
     }
     onTableSizeChange(event: any): void {
       this.tableSize = event.target.value;
       this.page = 1;
-      this.getNotification();
     }
 
     openVerticallyCentered(content) {

@@ -4,14 +4,9 @@
 <section class="genmed-intro">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-3 col-sm-6" *ngFor="let item of acc">
+            <div class="col-lg-3 col-sm-6" >
                 <div class="intro-box bg-dark-brown" data-wow-duration="1s">
-                    <div class="intro-wrapper text-center"> <i class="flaticon-flag"></i>
-                        <h6 class="text-custom-white fw-600">numero de rib : {{item.rib}}</h6>
-                        <p class="text-custom-white">sold : {{item.sold}}</p>
-                    <!-- <a routerLink="/service" class="btn-first btn-submit fw-600">Read more</a>
-                    -->
-                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -40,16 +35,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-sm-6" *ngFor="let item of acc">
+            <div class="col-lg-3 col-sm-6" >
                 <div class="main-services-box p-relative mb-xl-30">
-                    <div class="main-service-wrapper padding-20">
-                        <div class="icon-box"> <i class="{{item.icon}}"></i>
-                        </div>
-                        <h6 class="fw-100">Account Number</h6>
-                        <h6 class="fw-100"><a routerLink="/transactionsbyrib/{{item.rib}}"
-                                class="text-custom-black">{{item.rib}}</a></h6>
-                        <p class="text-light-white no-margin">Sold : {{item.sold}}</p>
-                    </div>
+                
                 </div>
             </div>
         </div>

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Credit} from '../../../../models/Credit';
-import {CreditService} from '../../../../Services/CreditService';
 import {ActivatedRoute, Router} from '@angular/router';
 import Swal from 'sweetalert2';
-import {Client} from '../../../../models/Client';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({

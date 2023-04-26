@@ -2,8 +2,7 @@ import { Component, OnInit,ElementRef,ViewChild  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Transaction } from 'src/app/models/Transaction';
-import { TransactionService } from 'src/app/services/transaction.service';
+
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -22,13 +21,12 @@ export class TransactionListByRibComponent implements OnInit {
   tableSize: number = 6;
   tableSizes: any = [3, 6, 9, 12];
   rib: string;
-  tr: Transaction;
   filterTerm!: string;
 
   //@ViewChild('Rib1', { static: true }) usernameElement: ElementRef;
   rib1: string = "";
 
-  constructor(private trService: TransactionService,
+  constructor(
     private route: ActivatedRoute,
     private router: Router , usernameElement: ElementRef ,private modalService: NgbModal) { 
     // this.usernameElement = usernameElement;
@@ -37,9 +35,9 @@ export class TransactionListByRibComponent implements OnInit {
   ngOnInit(): void {
     this.rib=this.route.snapshot.params['id']; 
     console.log(this.rib); 
-      this.trService.gettransactionsByRib(this.rib).subscribe(data => {
+     /* this.trService.gettransactionsByRib(this.rib).subscribe(data => {
       this.tr = data;
-      })
+      })*/
     //this.getEmployees();
   }
   

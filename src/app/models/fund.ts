@@ -1,9 +1,12 @@
-import { Inves } from "./inves";
 
+import { Project } from "./Project";
+import { User } from './User';
 export class Fund {
-    idFund: any;
-    amountFund: any;
-    tauxFund: any;
-    tauxGain: any;
-    investesment:Inves[];
-}
+    idFund: number;
+    amountFund: number;
+    tauxFund: number;
+    tauxGain: number;
+    users: User[];
+    project:Project[];
+  }
+  

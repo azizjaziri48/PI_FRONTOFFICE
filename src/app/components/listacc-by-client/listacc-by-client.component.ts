@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Account } from 'src/app/models/Account';
 import blogbox from '../../../../data/blog.json';
-import { AccountService } from 'src/app/services/account.service';
-import { ClientService } from 'src/app/UserService/client.service';
-import { Client } from 'src/app/models/Client';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -14,18 +11,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ListaccByClientComponent implements OnInit {
   rib : string ='' ; 
-  acc: Account[];
-  constructor(private accService: AccountService ,private ClientS:ClientService , private router: Router ,private httpClient : HttpClient ) { }
+  constructor(private router: Router ,private httpClient : HttpClient ) { }
   
   ngOnInit(): void {
-    this.ClientS.findUserWithToken();
-    this.getAcc(1);
+    //this.getAcc(1);
     this.invokeStripe();
    
   }
   private headers: HttpHeaders;
 
-  private getAcc (id : number){
+ /* private getAcc (id : number){
     this.httpClient.get<Client>("http://localhost:8083/BKFIN/findClientByToken" , {
       headers: this.headers}).subscribe(res => {
         console.log(res.id);
@@ -35,7 +30,7 @@ export class ListaccByClientComponent implements OnInit {
      
       
     });
-  }
+  }*/
  
   paymentHandler: any = null;
   
@@ -80,11 +75,11 @@ export class ListaccByClientComponent implements OnInit {
   
   pay(rib : string, amount: any ){
 
-    this.accService.alimente(rib,amount).subscribe( data => {
+    /*this.accService.alimente(rib,amount).subscribe( data => {
       console.log(data);
       //this.trs={}; 
      // this.goTotransactionsList();
-    }) ; 
+    }) ; */
   }
 
   

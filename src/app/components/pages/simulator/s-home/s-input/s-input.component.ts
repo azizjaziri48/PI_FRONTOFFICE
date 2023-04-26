@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../data-service';
 import { ChangeEventArgs } from '@syncfusion/ej2-inputs';
 import { NumericTextBoxComponent, SliderTickRenderedEventArgs } from '@syncfusion/ej2-angular-inputs';
-import {CreditService} from '../../../../../Services/CreditService';
-import {Credit} from '../../../../../models/Credit';
-import {Amorrtissement} from '../../../../../models/Amorrtissement';
 import {delay} from 'rxjs/operators';
 import { saveAs } from 'file-saver';
 
@@ -19,7 +16,7 @@ export class SInputComponent implements OnInit {
 
 
   /** Configurations for the Input page */
-  constructor(private data:DataService , private creditserv:CreditService) {
+  constructor(private data:DataService ) {
     this.principalValue = this.data.principalValue;
     this.interestValue = this.data.interestValue;
     this.loanValue = this.data.loanValue;
@@ -79,7 +76,7 @@ export class SInputComponent implements OnInit {
 
   public principalChange(args: ChangeEventArgs): void {
     this.data.principalValue = this.principalValue;
-    this.data.setInitValues();
+   // this.data.setInitValues();
     this.data.updateTotalAmt();
   }
 
@@ -106,7 +103,7 @@ export class SInputComponent implements OnInit {
 
   public interestChange(args: ChangeEventArgs): void {
     this.data.interestValue = this.interestValue;
-    this.data.setInitValues();
+   // this.data.setInitValues();
     this.data.updateTotalAmt();
   }
 
@@ -125,7 +122,7 @@ export class SInputComponent implements OnInit {
   public loanChange(args: ChangeEventArgs): void {
 
     this.data.loanValue = this.loanValue;
-    this.data.setInitValues();
+   // this.data.setInitValues();
     this.data.updateTotalAmt();
   }
 
@@ -166,7 +163,7 @@ export class SInputComponent implements OnInit {
   public ngAfterViewInit(): void {
   }
 
-  download(period,interst,amount)
+  /*download(period,interst,amount)
   { console.log(amount);
     console.log(interst);
     console.log(period);
@@ -183,6 +180,6 @@ export class SInputComponent implements OnInit {
   }
 
 
-
+*/
 
 }

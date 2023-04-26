@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-import {CreditService} from '../../../../Services/CreditService';
-import {DuesHistory} from '../../../../models/DuesHistory';
-import {DuesHistoryService} from '../../../../Services/DuesHistoryService';
-import {Client} from '../../../../models/Client';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
@@ -18,57 +14,17 @@ export class ContentComponent implements OnInit {
   loanAmount=0;
   nbloans=0;
   payedamount:number;
-  dhistories: DuesHistory[];
-  lastdueshistory :DuesHistory[];
   lastvaleuamount:number;
   mensualite:number=null;
   lastpaymentdate:any;
 
 
-  constructor(private creditservice : CreditService , private  dhservice :DuesHistoryService , private http: HttpClient) {
+  constructor(private http: HttpClient) {
 
   }
 
   retour:any;
-  setLoan()
-  {//client id b session
-    this.http.get<Client>('http://localhost:8083/BKFIN/findClientByToken' , {
-      headers: this.headers}).subscribe(res => {
-      //console.log(res);
-      this.clientid = res.id;
-    this.creditservice.getActiveCredit(this.clientid).subscribe(res2 => {
-      this.retour=res2;
-      if(this.retour.idCredit==null)
-      {}
-      else {
-
-        this.loanAmount=this.retour.amount;
-        this.nbloans=1;
-        this.payedamount=this.retour.interestRate;
-        this.mensualite=this.retour.monthlyPaymentAmount;
-
-        this.dhservice.getDuesHistorysList_bycredit(this.retour.idCredit).subscribe(res1 =>{this.dhistories =res1;
-          this.lastpaymentdate=this.dhistories[this.dhistories.length - 1].dateHistory;});
-
-
-
-
-      }
-    });
-
-
-
-    this.creditservice.getLastCredit(this.clientid).subscribe(res => {
-      console.log("history");
-      console.log(res);
-      this.lastdueshistory=res.duesHistory;
-      this.lastvaleuamount=res.amount;
-    });
-
-      }
-    );
-
-  }
+ 
 
 
 
@@ -282,7 +238,6 @@ export class ContentComponent implements OnInit {
   private headers: HttpHeaders;
   clientid:any;
   ngOnInit(): void {
-    this.setLoan();
 
 
   }

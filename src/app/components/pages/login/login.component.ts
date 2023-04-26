@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from 'src/app/models/Client';
-import { AuthentificationService } from 'src/app/UserService/authentification.service';
 import { Router, RouterModule } from '@angular/router';
-import { TokenStorageService } from 'src/app/UserService/token-storage-service.service';
 
-import { ClientService } from 'src/app/UserService/client.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +8,7 @@ import { ClientService } from 'src/app/UserService/client.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
- client : Client
+// client : Client
  errorMessage : String
 token:any
 
@@ -20,14 +16,14 @@ form: any = {};
 isLoggedIn = false;
 isLoginFailed = false;
 
-  constructor(private authS:AuthentificationService, private router:Router,private tokenStorage: TokenStorageService,private clientS:ClientService) {
-    this.client ={}
+  constructor(private router:Router) {
+    //this.client ={}
     this.token=""
     this.form={}
    }
 
   ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
+   /* if (this.tokenStorage.getToken()) {
       console.log("connecté")
       this.isLoggedIn = true;
       console.log("infor", this.tokenStorage.getToken())
@@ -37,11 +33,11 @@ isLoginFailed = false;
     else
     {
       console.log("connectez vous")
-    }
+    }*/
   }
 
   
-  login() {
+ /* login() {
    // let user=this.form.value
     this.authS.logn(this.client).subscribe(resp=> {
       // login successful if there's a jwt token in the response
@@ -81,7 +77,7 @@ isLoginFailed = false;
   
   reloadPage(): void {
     window.location.reload();
-}
+}*/
 
   }
 

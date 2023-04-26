@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Agent } from '../../../models/agent';
 
 import * as L from 'leaflet';
-import { AgentService } from 'src/app/UserService/agent.service';
 import { HttpRequest } from '@angular/common/http';
 
 @Component({
@@ -12,10 +10,10 @@ import { HttpRequest } from '@angular/common/http';
 })
 export class MapComponent implements OnInit {
 map:any;
-ag:Agent;
+//ag:Agent;
 ipAddr:any
-  constructor(private agentS:AgentService ) { 
-    this.ag={}
+  constructor() { 
+   // this.ag={}
     this.ipAddr=""
   }
 

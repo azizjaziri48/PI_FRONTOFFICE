@@ -4,15 +4,14 @@ import { Internationalization } from '@syncfusion/ej2-base';
 import { GridAppComponent } from './grid-app/grid-app.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import {SDashboardComponent} from './s-home/s-dashboard/s-dashboard.component';
-import {CreditService} from '../../../Services/CreditService';
-import {Amorrtissement} from '../../../models/Amorrtissement';
+
 
 @Injectable()
 
 export class DataService {
 
-  simulations :Amorrtissement ;
-  constructor( private creditService: CreditService) {
+ 
+  constructor() {
     this.initialize();
   }
 
@@ -52,7 +51,7 @@ export class DataService {
   }
 
   public refreshUI1(): void {
-    this.setInitValues();
+    //this.setInitValues();
     let interestPercent: number = parseFloat((Math.round((this.emi * this.tent) - this.princ) / Math.round((this.emi * this.tent)) * 100).toFixed(2));
     this.dashboard.pieChart.series = [
       {
@@ -166,7 +165,7 @@ export class DataService {
 
 
 
-  public setInitValues(): void {
+  /*public setInitValues(): void {
     this.creditService.Simulate(this.principalValue, this.loanValue, this.interestValue/100).subscribe(res => {
       console.log(res);
       this.emi=res.mensualite;
@@ -187,7 +186,7 @@ export class DataService {
 
     })
 
-  }
+  }*/
 
   public calRangeValues(): void {
     for (let i: number = 0; i < this.tent; i++) {
@@ -239,7 +238,7 @@ export class DataService {
   }
 
   public initialize(): void {
-    this.setInitValues();
+    //this.setInitValues();
     this.calRangeValues();
   }
 

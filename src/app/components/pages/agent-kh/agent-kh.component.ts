@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { Agent } from "src/app/models/agent";
-import { AgentService } from "src/app/UserService/agent.service";
+
 
 
 

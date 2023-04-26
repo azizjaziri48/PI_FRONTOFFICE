@@ -1,13 +1,12 @@
-import { Product } from "./product";
+import { Offer } from "./Offre";
 
-export class Partner{
-    idPartner:Number;
-    activitePartner:string;
-    namePartner:string;
-    sectorPartner:string;
-    urlPartner:string;
-    logoPartner:string;
-    emailPartner:string;
-    products:Product[];
-
+//import { Service } from "./Service";
+export class Partner {
+    idPartner: any;
+    name: any;
+    activity: any;
+    sector: any;
+    logo: any;
+   offer:Offer;
+  //  services:Service[];
 }

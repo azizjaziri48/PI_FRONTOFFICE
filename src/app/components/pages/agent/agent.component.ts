@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Agent } from 'src/app/models/agent';
-import { AgentService } from 'src/app/UserService/agent.service';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { AgentDialogueComponent } from '../agent-dialogue/agent-dialogue.component';
 import blogbox from '../../../data/blog.json';
