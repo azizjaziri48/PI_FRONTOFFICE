@@ -1,0 +1,29 @@
+<!-- Start Blog -->
+<section class="section-padding bg-gray our-articles">
+    <div class="container">
+        <div class="row">
+            <article class="col-lg-4 col-md-6 post mb-xl-30" *ngFor="let item of blogbox | paginate: { itemsPerPage: 6, currentPage: page }">
+                <div class="post-wrapper">
+                    <div class="blog-img animate-img">
+                      
+                    </div>
+                    <div class="blog-meta padding-20">
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <nav class="mt-5">
+                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+
+  </div>
+
+<!-- End Blog -->

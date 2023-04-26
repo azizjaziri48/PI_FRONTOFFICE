@@ -1,0 +1,348 @@
+<!-- Start User Dashboard -->
+<section class="section-padding user-dashboard-sec bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="dashboard-first-sec">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <div class="left-side mb-md-80">
+                                <h3><a href="#" class="text-custom-black">www.BKFIN.com</a></h3>
+
+                                <h5 class="no-margin fw-600"><a href="javascript:void(0)" class="text-custom-blue"
+                                        (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">Your
+                                        Loan
+                                        Profile</a></h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-side">
+                                <ul class="custom">
+                                    <li>
+                                        <div class="icon-box">
+                                            <img src="assets/images/more.png" alt="icon">
+                                        </div>
+                                        <p class="text-custom-black">Get more out of <br>Loanly</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon-box">
+                                            <img src="assets/images/connect.png" alt="icon">
+                                        </div>
+                                        <p class="text-custom-black">Connect with the <br>best</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon-box">
+                                            <img src="assets/images/move.png" alt="icon">
+                                        </div>
+                                        <p class="text-custom-black">Plan your next <br>move</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-padding user-dashboard-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="user-loan-profile" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="welcome-box mb-md-40">
+                                <div class="icon-box">
+                                    <img src="assets/images/faq-user.png" alt="icon">
+                                </div>
+                                <div class="welcome-text">
+                                    <h4 class="text-custom-black">Welcome Back!</h4>
+                                    <p class="text-custom-black">We're happy to help you grow your business with Loanly
+                                        Working Capital.</p>
+                                  <qr-code [value]="'http://localhost:8083/BKFIN/Credit/export/excel/1000/3/0.2'"></qr-code>
+                                  <p class="no-margin text-custom-blue">Check QR Code to download Loan Payment Table On SmartPhone</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-sm-4">
+                            <div class="loan-box-wrap">
+                                <div class="content">
+                                    <h2 class="text-custom-black fw-600">{{nbloans}}</h2>
+                                    <p class="no-margin text-custom-black">Loan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-8">
+                            <div class="loan-box-wrap justify-content-between">
+                                <div class="content">
+                                    <h2 class="text-custom-black fw-600">{{loanAmount}} $</h2>
+                                    <p class="no-margin text-custom-black">Total Borrowed</p>
+                                </div>
+
+                                <div class="content-infor">
+                                    <ul class="custom">
+                                        <li>Last Payment on <a href="#"></a>{{lastpaymentdate}}</li>
+                                        <li> <a href="#">View Monthly Details</a> </li>
+                                        <li> <a href="#">View Yearly Details</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close-btn" (click)="isCollapsed = !isCollapsed">
+                            <a href="javascript:void(0)"><i class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="dashboard-second-sec" (click)="isMenuCollapsed = !isMenuCollapsed"
+                    [attr.aria-expanded]="!isMenuCollapsed">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 align-self-center">
+                            <div class="heading-text">
+                                <h4 class="text-custom-black no-margin">LOAN PROGRESS CHARTS</h4>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="dashboard-second-sec-large" #collapse="ngbCollapse" [(ngbCollapse)]="isMenuCollapsed">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <h5 class="text-custom-black fw-600 text-center mb-xl-40">Repayment Progress</h5>
+                            <div class="left-side mb-md-40">
+                                <div class="pie-chart-area">
+                                    <div class="active-border activeBorder">
+                                        <div class="circle circlestyle-big">
+                                            <circle-progress [percent]="(payedamount/(mensualite*12))*100" [showInnerStroke]="true"
+                                                [showSubtitle]="false" [radius]="100" [outerStrokeWidth]="5"
+                                                [innerStrokeWidth]="5" [innerStrokeColor]="'#0070ba'" [space]="'-5'"
+                                                [outerStrokeColor]="'#11c391'" [animation]="true"
+                                                [animationDuration]="2000"></circle-progress>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pie-chart-area-text">
+                                    <div class="text-wraper mb-xl-20">
+                                        <label class="fw-600 fs-16 text-custom-black">$ {{loanAmount}}</label>
+                                        <p class="no-margin fw-500 text-custom-black">Outstanding balance</p>
+                                    </div>
+                                    <div class="text-wraper">
+                                        <label class="fw-600 fs-16 text-custom-black">$ {{payedamount |
+                                          number:'1.2-2'}}</label>
+                                        <p class="no-margin fw-500 text-custom-black">Paid to date</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <h5 class="text-custom-black fw-600 text-center mb-xl-40">Repayment Tracking</h5>
+                            <div class="right-side">
+                                <div class="graph mb-xs-40">
+                                    <canvas baseChart [datasets]="bigChartData" [labels]="bigChartLabels"
+                                        [options]="bigChartOptions" [chartType]="bigChartType">
+                                    </canvas>
+                                </div>
+                                <div class="graph-text">
+                                    <div class="text-wraper mb-xl-20">
+                                        <label class="fw-600 fs-16 text-custom-black">Average Payment</label>
+                                        <p class="no-margin fw-500 text-custom-black">${{loanAmount}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="dashboard-third-sec">
+                    <div class="row">
+                        <aside class="col-lg-4 mb-md-80">
+                            <div class="widget-box mb-xl-30">
+                                <h4 class="text-custom-black">Loan Details</h4>
+                                <div class="content-wrap">
+                                    <div class="text-wraper mb-xl-10">
+                                        <label class="fw-600 fs-16 text-custom-black">${{loanAmount}}</label>
+                                        <p class="no-margin fw-500">Outstanding balance</p>
+                                    </div>
+                                    <div class="text-wraper mb-xl-10">
+                                        <label class="fw-600 fs-16 text-custom-black">$ {{payedamount |
+                                          number:'1.2-2'}}</label>
+                                        <p class="no-margin fw-500">Paid to date</p>
+                                    </div>
+                                    <button type="submit" class="btn-first btn-submit text-custom-blue">Make
+                                        Payment</button>
+                                </div>
+                            </div>
+                            <div class="widget-box mb-xl-30">
+                                <div class="content-wrap">
+                                    <div class="text-wraper mb-xl-10">
+                                        <label class="fw-600 fs-16 text-custom-black">$ {{loanAmount}}</label>
+                                        <p class="no-margin fw-500">Initial loan amount</p>
+                                    </div>
+                                    <div class="text-wraper mb-xl-10">
+                                        <label class="fw-600 fs-16 text-custom-black">$ {{payedamount |
+                                          number:'1.2-2'}}</label>
+                                        <p class="no-margin fw-500">Loan Fee</p>
+                                    </div>
+                                    <div class="text-wraper mb-xl-10">
+                                        <label class="fw-600 fs-16 text-custom-black">{{(payedamount/loanAmount)*100 |
+                                          number:'1.2-2'}}%</label>
+                                        <p class="no-margin fw-500">Repayment percentage</p>
+                                    </div>
+                                    <div class="text-wraper">
+                                        <a href="#" class="text-custom-blue fw-600 fs-14"><i
+                                                class="fas fa-download mr-2"></i> Download contract</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-box mb-xl-30">
+                                <h4 class="text-custom-black">How are we doing?</h4>
+                                <div class="content-wrap">
+                                    <div class="text-wraper mb-xl-10">
+                                        <label class="fw-600 fs-14 text-custom-black mb-xl-10">Your feedback is always
+                                            appreciated.</label>
+                                    </div>
+                                    <div class="text-wraper">
+                                        <a href="#" class="text-custom-blue fw-600 fs-14">Take our satisfaction
+                                            survey</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-box mb-xl-30">
+                                <h4 class="text-custom-black">Loan Tips</h4>
+                                <div class="content-wrap">
+                                    <div class="text-wraper mb-xl-10">
+                                        <label class="fw-600 fs-14 text-custom-black mb-xl-10">Meet the minimum
+                                            requirement</label>
+                                        <p class="no-margin fw-500">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div class="text-wraper">
+                                        <a href="#" class="text-custom-blue fw-600 fs-14">Learn about the minimum
+                                            requirement</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-box pb-0 border-0">
+                                <h4 class="text-custom-black">Have Questions?</h4>
+                                <div class="content-wrap">
+                                    <div class="text-wraper mb-xl-20">
+                                        <label class="fw-600 fs-14 text-custom-black d-block">Call us and we'll be happy
+                                            to help.</label>
+                                        <a href="#" class="fw-600 fs-14 text-custom-black">(+345 123 456 7890)</a>
+                                    </div>
+                                    <div class="text-wraper">
+                                        <label class="fw-600 fs-14 text-custom-black d-block">9:00AM to 8:00PM Eastern
+                                            Time </label>
+                                        <a href="#" class="fw-600 fs-14 text-custom-black">Monday - Friday</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <div class="col-lg-8">
+                            <div class="tabs-sec">
+                                <ul ngbNav #nav="ngbNav" class="custom nav nav-tabs mb-xl-30">
+                                    <li [ngbNavItem]="1">
+                                        <a ngbNavLink>Active Credit Payment</a>
+                                        <ng-template ngbNavContent>
+                                            <div class="recent-activity">
+                                                <h4 class="text-custom-black">Recent Activity</h4>
+                                            </div>
+                                            <a href="#" class="payment-activity-box"
+                                                *ngFor="let item of dhistories let i = index">
+                                                <div class="left-side">
+                                                    <div class="date-box">
+                                                        <p class="month no-margin">{{i+1}}
+
+                                                        </p>
+                                                    </div>
+                                                    <div class="payment-type-box">
+                                                        <p class="text-custom-blue mb-1 fw-600">{{item.dateHistory}}</p>
+
+                                                    </div>
+                                                </div>
+                                                <div class="right-side">
+                                                    <div class="price-box">
+                                                        <p class="mb-1 fw-600 text-custom-black">$ {{mensualite |
+                                                            number:'1.2-2'}}  </p>
+                                                        <p class="no-margin text-light-grey">{{item.supposedDate}}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="all-act">
+                                                <a href="#" class="text-right fw-600">View all activity</a>
+                                            </div>
+                                        </ng-template>
+                                    </li>
+                                    <li [ngbNavItem]="2">
+                                        <a ngbNavLink>Loans History</a>
+                                        <ng-template ngbNavContent>
+                                            <div class="sch-payment mb-xl-30">
+                                                <h4 class="text-custom-black">Last Loan</h4>
+                                                <div class="sch-payment-box">
+                                                    <a href="#" class="payment-activity-box border-0">
+                                                        <div class="left-side">
+                                                            <div class="date-box">
+                                                                <p class="month no-margin"></p>
+                                                            </div>
+                                                            <div class="payment-type-box">
+                                                                <p class="text-custom-blue mb-1 fw-600">Payment
+                                                                </p>
+                                                                <p class="no-margin fw-600"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="right-side">
+                                                            <div class="price-box">
+                                                                <p class="mb-1 fw-600 text-custom-black">{{lastvaleuamount}}</p>
+                                                                <p class="no-margin text-light-grey">1 Completed</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="recent-activity">
+                                                <h4 class="text-custom-black">Recent Activity</h4>
+                                            </div>
+
+                                            <a href="#" class="payment-activity-box"
+                                                *ngFor="let item of lastdueshistory let i =index">
+                                              <div class="left-side">
+                                                <div class="date-box">
+                                                  <p class="month no-margin">{{i+1}}
+
+                                                  </p>
+                                                </div>
+                                                <div class="payment-type-box">
+                                                  <p class="text-custom-blue mb-1 fw-600">{{item.dateHistory}}</p>
+
+                                                </div>
+                                              </div>
+                                              <div class="right-side">
+                                                <div class="price-box">
+                                                  <p class="mb-1 fw-600 text-custom-black">$ {{mensualite |
+                                                    number:'1.2-2'}}  </p>
+                                                  <p class="no-margin text-light-grey">{{item.supposedDate}}</p>
+                                                </div>
+                                              </div>
+                                            </a>
+                                            <div class="all-act">
+                                                <a href="#" class="text-right fw-600">View all activity</a>
+                                            </div>
+                                        </ng-template>
+                                    </li>
+                                </ul>
+                                <div [ngbNavOutlet]="nav"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End User Dashboard -->

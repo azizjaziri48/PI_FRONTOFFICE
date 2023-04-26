@@ -1,0 +1,27 @@
+<!-- Start Team -->
+<section class="section-padding bg-gray">
+
+        <div class="row doctors-team darkblue">
+            <div class="col-lg-3 col-md-6" *ngFor="let item of teamblock | slice:0:4">
+                <div class="doctor-item mb-xl-30">
+                    <div class="doctor-img mb-xl-20">
+                        <img [src]="item.photo" class="rounded-circle full-width" alt="{{item.name}}"> <a routerLink="/team" class="detail-btn"><i class="fas fa-plus"></i></a>
+                    </div>
+                    <div class="doctor-content">
+                        <h6><a routerLink="/team" class="text-custom-black fw-700">{{item.name}}</a></h6>
+                        <p class="designation text-light-white">{{item.designation}}</p>
+                        <ul class="custom">
+                            <li *ngFor="let item of item.socialmedia">
+                                <a routerLink="{{item.url}}">
+                                    <i class="fab fa-{{item.icon}}"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+</section>
+<!-- End Team -->

@@ -1,0 +1,43 @@
+<!-- Start Blog -->
+<section class="section-padding bg-gray our-articles">
+    <div class="container">
+        <div class="row">
+            <aside class="col-lg-4 mb-md-80">
+                <app-blogsidebar></app-blogsidebar>
+            </aside>
+            <div class="col-lg-8"> 
+                <div class="row">
+                    <article class="col-lg-6 col-md-6 post mb-xl-30" *ngFor="let item of blogbox | paginate: { itemsPerPage: 6, currentPage: page }">
+                        <div class="post-wrapper">
+                            <div class="blog-img animate-img">
+                              
+                            </div>
+                            <div class="blog-meta padding-20">
+                                <div class="post-meta">
+                                    
+                                    <div class="author-meta">
+                                       
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                               
+                                </div>
+                                <div class="blog-links">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="mt-5">
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Blog -->
